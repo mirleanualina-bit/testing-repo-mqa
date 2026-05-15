@@ -1,3 +1,4 @@
+
 import test, { expect } from 'playwright/test';
 
 
@@ -23,5 +24,25 @@ test.describe('Form Layouts page', () => {
     const webSiteInputByLabel = blockFormComponent.getByLabel('Website');
     await webSiteInputByLabel.fill('https://ada.dev');
     await expect(webSiteInputByLabel).toHaveValue('https://ada.dev'); 
+  });
+
+  test('filter - locator', async ({ page }) => {
+    const formsTextArea = page.locator('nb-card').filter({ has: page.locator('textarea') });
+    await expect(formsTextArea).toHaveCount(1);
+    await expect(formsTextArea).toBeVisible();
+
+    const headerFormWithoutLabels = formsTextArea.locator('nb-card-header');
+    await expect(headerFormWithoutLabels).toHaveText('Form without labels');
+  });
+
+  test('counting - locator', async ({ page }) => {
+    const inputEmailCSS1 = page.locator('input[type=\"email\"]');
+    await expect(inputEmailCSS1).toHaveCount(4);
+
+    await inputEmailCSS1.first().fill('first@email.com');
+    await expect(inputEmailCSS1.first()).toHaveValue('first@email.com');
+    
+    await inputEmailCSS1.last().fill('last@email.com');
+    await expect(inputEmailCSS1.last()).toHaveValue('last@email.com');
   });
 });
