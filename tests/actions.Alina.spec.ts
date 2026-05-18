@@ -100,32 +100,38 @@ test('Ex 3 :for loop for checkbox - action', async ({ page }) => {
      horizontalFormComponent,
    ];
 
-   for (const checkbox of checkboxes2) {
-     //await checkbox.scrollIntoViewIfNeeded();
-     await checkbox.check({ force: true });
-     await expect(checkbox).toBeChecked();
-   }
-
-   //await checkboxes2[1].scrollIntoViewIfNeeded();
-   await checkboxes2[1].uncheck({ force: true });
-   await expect(checkboxes2[1]).not.toBeChecked();
-   await expect(checkboxes2[0]).toBeChecked();
-   await expect(checkboxes2[2]).toBeChecked();
-
-   //await checkboxes2[1].setChecked(false, { force: true });
-   /*for (let i = 0; i < checkboxes2.length; i++) {
-     await checkboxes2[i].scrollIntoViewIfNeeded();
-     if (await checkboxes2[i].isChecked()) {
-       await checkboxes2[i].uncheck({ force: true });
-       await expect(checkboxes2[i]).not.toBeChecked();
-     } else {
-       await checkboxes2[i].check({ force: true });
-       await expect(checkboxes2[i]).toBeChecked();
+   await test.step('check all checkboxes', async () => {
+     for (const checkbox of checkboxes2) {
+       await checkbox.scrollIntoViewIfNeeded();
+       await checkbox.check({ force: true });
+       await expect(checkbox).toBeChecked();
      }
-   }
+   });
+
+   await test.step('uncheck middle checkbox', async () => {
+     for (let i = 0; i < checkboxes2.length; i++) {
+       if (i === 1) {
+         await checkboxes2[i].scrollIntoViewIfNeeded();
+         await checkboxes2[i].setChecked(false, { force: true });
+         await expect(checkboxes2[i]).not.toBeChecked();
+       } else {
+         await expect(checkboxes2[i]).toBeChecked();
+       }
+     }
+   });
+
+  /* await test.step('change the state of checkbox', async () => {
+    for (let i = 0; i < checkboxes2.length; i++) {
+      if (await checkboxes2[i].isChecked()) {
+        await checkboxes2[i].setChecked(false, { force: true });
+        await expect(checkboxes2[i]).not.toBeChecked();
+      } else {
+        await checkboxes2[i].setChecked(true, { force: true });
+        await expect(checkboxes2[i]).toBeChecked();
+      }
+    }
+  });
 */
-
-
 });
   
 });
