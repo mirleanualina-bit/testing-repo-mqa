@@ -12,7 +12,7 @@ import test, { expect } from 'playwright/test';
 
 test.describe('Form Layouts page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/');
+    await page.goto('/');
     await page.getByText('Forms').click();
     await page.getByText('Form Layouts').click();
   });
@@ -95,9 +95,7 @@ test.describe('Form Layouts page', () => {
     const submitBasicFormButton = basicFormComponent.getByRole('button', { name: 'Submit' });
     await expect(submitBasicFormButton).toBeVisible();
 
-    ////////////////////////
-
-    const submitBasicFormButtonByTestId = page.getByTestId('submitBasicFormButton');
+    const submitBasicFormButtonByTestId = basicFormComponent.getByTestId('submit-btn');
     await expect(submitBasicFormButtonByTestId).toBeVisible();
   });
 

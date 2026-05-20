@@ -24,7 +24,7 @@ async function checkAllCheckboxes(page: Page) {
 
 test.describe('Form Layouts page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/');
+    await page.goto('/');
     await page.getByText('Forms').click();
     await page.getByText('Form Layouts').click();
   });
@@ -38,7 +38,7 @@ test.describe('Form Layouts page', () => {
     await usingTheGridEmailInput.fill('test@test.com');
 
     //web-first assertion
-    await expect(usingTheGridEmailInput).toHaveValue('test2@test.com');
+    await expect(usingTheGridEmailInput).toHaveValue('test@test.com');
 
     //generic assertion
     // const inputValue = await usingTheGridEmailInput.inputValue();
@@ -91,7 +91,7 @@ test.describe('Form Layouts page', () => {
       await submitBasicFormButton.click({ modifiers: ['Shift'] });
       await submitBasicFormButton.click({ clickCount: 6 });
       await submitBasicFormButton.click({ force: true });
-      await submitBasicFormButton.click({ position: { x: 100, y: 100 } });
+      await submitBasicFormButton.click({ position: { x: 0, y: 0 } });
       await submitBasicFormButton.dblclick();
     });
 
