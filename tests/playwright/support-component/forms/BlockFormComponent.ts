@@ -1,5 +1,5 @@
 
-/*
+
 import { expect } from "@playwright/test";
 import { BaseFormComponent } from "./BaseFormComponent";
 import { Locator, Page} from 'playwright';
@@ -13,29 +13,24 @@ export class BlockFormComponent extends BaseFormComponent{
     constructor(page: Page){
         super(page, 'block-form-card');
         this.BlockFirstNameInput = this.card.getByTestId('firstname-input');
-        this.BlockLastNameInput = this.card.getByTestId('firstname-input');
-        this.InLineEmailInput = this.card.getByTestId('email-input');
-        this.InLineRememberMe = this.card.getByTestId('remember-me-checkbox').locator('input[type="checkbox"]');
+        this.BlockLastNameInput = this.card.getByTestId('lastname-input');
+        this.BlockEmailInput = this.card.getByTestId('email-input');
+        this.BlockWebsiteInput = this.card.getByTestId('website-input');
     }
 
-    async fillName(value: string){
-        await this.InLineNameInput.fill(value)
+    async fillFirstName(value: string){
+        await this.BlockFirstNameInput.fill(value)
+    }
+
+    async fillLastName(value: string){
+        await this.BlockLastNameInput.fill(value)
     }
 
     async fillEmail(value: string){
-        await this.InLineEmailInput.fill(value);
+        await this.BlockEmailInput.fill(value);
     }
 
-    async toggleRememberMe(){
-        await expect(this.InLineRememberMe).not.toBeChecked();
-        await this.InLineRememberMe.check({force: true});
-        await expect(this.InLineRememberMe).toBeChecked();
+    async fillWebsite(value: string){
+        await this.BlockWebsiteInput.fill(value);
     }
-
-    async unToggleRememberMe(){
-        await expect(this.InLineRememberMe).toBeChecked();
-        await this.InLineRememberMe.uncheck({force: true});
-        await expect(this.InLineRememberMe).not.toBeChecked();
-    } 
 }
-*/

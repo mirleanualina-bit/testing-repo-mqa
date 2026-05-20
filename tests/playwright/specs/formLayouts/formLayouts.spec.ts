@@ -78,4 +78,80 @@ test.describe('Form Layouts page', () => {
             await onInLineForm.submit();
         }); 
   });
+
+  test('User should be able to complete the block form and submit it', async ({ 
+    onApplicationURLs,
+    onBlockForm 
+    }) => { 
+        const testfirstname = 'First name' ;
+        const testlastname = 'Last name' ;
+        const testEmail = 'test@test.com' ;
+        const testWebsite = 'test@gmail.com' ;
+
+        await test.step('Navigate to the form layout form',async () => {
+            await onApplicationURLs.navigateToFormLayout();
+        });
+
+        await test.step('Complete the block form',async () => {
+            await onBlockForm.assertVisibility(true);
+            await onBlockForm.fillFirstName(testfirstname);
+            await onBlockForm.fillLastName(testlastname);
+            await onBlockForm.fillEmail(testEmail);
+            await onBlockForm.fillWebsite(testWebsite);
+        });
+
+        await test.step('Submit the form',async () => {
+            await onBlockForm.submit();
+        }); 
+  });
+
+  test('User should be able to complete the witout labels form and submit it', async ({ 
+    onApplicationURLs,
+    onWithoutLabelsForm 
+    }) => { 
+        const testrecipients = 'Recipients' ;
+        const testsubject = 'Subject' ;
+        const testmessage = 'Message is written.' ;
+
+        await test.step('Navigate to the form layout form',async () => {
+            await onApplicationURLs.navigateToFormLayout();
+        });
+
+        await test.step('Complete the without labels form',async () => {
+            await onWithoutLabelsForm.assertVisibility(true);
+            await onWithoutLabelsForm.fillRecipients(testrecipients);
+            await onWithoutLabelsForm.fillSubject(testsubject);
+            await onWithoutLabelsForm.fillMessage(testmessage);
+        });
+
+        await test.step('Submit the form',async () => {
+            await onWithoutLabelsForm.submit();
+        }); 
+  });
+
+  test('User should be able to complete the horizontal form and submit it', async ({ 
+    onApplicationURLs,
+    onHorizontalForm
+    }) => { 
+        const testEmail = 'test@test.com' ;
+        const testpassword = 'password' ;
+
+        await test.step('Navigate to the form layout form',async () => {
+            await onApplicationURLs.navigateToFormLayout();
+        });
+
+        await test.step('Complete the horizontal form',async () => {
+            await onHorizontalForm.assertVisibility(true);
+            await onHorizontalForm.fillEmail(testEmail);
+            await onHorizontalForm.fillPassword(testpassword);
+        });
+
+        await test.step("Check the 'Remember me' checkbox",async () => {
+            await onHorizontalForm.toggleRememberMe();
+        });
+
+        await test.step('Submit the form',async () => {
+            await onHorizontalForm.submit();
+        }); 
+  });
 });

@@ -5,13 +5,19 @@ import { UsingGridComponent } from "../support-component/forms/UsingGridComponen
 import {expect, test as base} from "playwright/test";
 import { ApplicationURLs } from "../support-component/main/applicationURLs";
 import { InLineFormComponent } from "../support-component/forms/InLineFormComponent";
+import { BlockFormComponent } from "../support-component/forms/BlockFormComponent";
+import { WithoutLabelsFormComponent } from "../support-component/forms/WithoutLabelsFormComponent";
+import { HorizontalConnectionPos } from "@angular/cdk/overlay";
+import { HorizontalFormComponent } from "../support-component/forms/HorizontalFormComponent";
 
 type MyFixtures = {
     onBasicForm: BasicFormComponent;
     onUsingGridForm: UsingGridComponent;
     onApplicationURLs: ApplicationURLs;
     onInLineForm: InLineFormComponent;
-
+    onBlockForm: BlockFormComponent;
+    onWithoutLabelsForm: WithoutLabelsFormComponent;
+    onHorizontalForm: HorizontalFormComponent;
 }
 
 const createFixtures = <T>(Component: new (page: Page) => T) => {
@@ -24,7 +30,10 @@ export const test = base.extend<MyFixtures>({
     onBasicForm: [createFixtures(BasicFormComponent),{scope: 'test'}],
     onUsingGridForm: [createFixtures(UsingGridComponent), {scope: 'test'}],
     onApplicationURLs: [createFixtures(ApplicationURLs), {scope: 'test'}],
-    onInLineForm: [createFixtures(InLineFormComponent), {scope: 'test'}]
+    onInLineForm: [createFixtures(InLineFormComponent), {scope: 'test'}],
+    onBlockForm: [createFixtures(BlockFormComponent), {scope: 'test'}],
+    onWithoutLabelsForm: [createFixtures(WithoutLabelsFormComponent), {scope: 'test'}],
+    onHorizontalForm: [createFixtures(HorizontalFormComponent), {scope: 'test'}]
 });
 
 export {expect};
