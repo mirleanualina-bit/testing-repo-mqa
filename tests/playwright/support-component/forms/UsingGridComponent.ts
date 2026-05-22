@@ -28,4 +28,4 @@ export class UsingGridComponent extends BaseFormComponent{
         await this.getOptionRadio(key).check({force: true});
         await expect(this.getOptionRadio(key)).toBeChecked();
     }
-}
+} 

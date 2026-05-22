@@ -2,6 +2,8 @@
 import { Page } from "playwright";
 import { BasicFormComponent } from "../forms/BasicFormComponent";
 import { expect } from "@playwright/test";
+import { DatePickerComponent } from "../forms/DatePickerComponent";
+
 
 export class ApplicationURLs{
     readonly page: Page;
@@ -18,4 +20,12 @@ constructor (page:  Page){
 
        
     }
+
+    async navigateToDatePicker() {
+        await this.page.goto('/pages/forms/datepicker', { waitUntil:"domcontentloaded"});
+
+       const datepicker = new DatePickerComponent(this.page);
+       await datepicker.assertVisibilityCommonDatePicker(true);
+            
+    }  
 }

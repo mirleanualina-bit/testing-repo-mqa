@@ -154,4 +154,35 @@ test.describe('Form Layouts page', () => {
             await onHorizontalForm.submit();
         }); 
   });
+
+  test('User should be able to complete the datepicker form and submit it', async ({ 
+    onApplicationURLs,
+    onDatePickerForm
+    }) => { 
+       
+        const day = 15;
+        const rangeStartDay = 10;
+        const rangeEndDay = 20;
+        const dayBetweenMinMax = 10;
+
+        await test.step('Navigate to the datePicker form',async () => {
+            await onApplicationURLs.navigateToDatePicker();
+        });
+
+        await test.step('Complete the common datePicker',async () => {
+            await onDatePickerForm.assertVisibilityCommonDatePicker(true);
+            await onDatePickerForm.fillCommonDatePickerInput(day);
+        });
+
+        await test.step('Complete the with range datePicker',async () => {
+            await onDatePickerForm.assertVisibilityWithRangeDatePicker(true);
+            await onDatePickerForm.fillWithRangeDatePickerInput(rangeStartDay, rangeEndDay);
+        });
+
+        await test.step('Complete the with disabled min max values datePicker',async () => {
+            await onDatePickerForm.assertVisibilityWithRangeDatePicker(true);
+            await onDatePickerForm.fillWithDisabledMinMaxValInput(dayBetweenMinMax);
+        });
+        
+  });
 });

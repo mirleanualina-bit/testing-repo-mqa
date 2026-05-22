@@ -24,6 +24,5 @@ export abstract class BaseFormComponent{
     }
     async submit() {
         await this.submitButton.click();
-   
     }
 }

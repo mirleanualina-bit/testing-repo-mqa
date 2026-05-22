@@ -9,6 +9,8 @@ import { BlockFormComponent } from "../support-component/forms/BlockFormComponen
 import { WithoutLabelsFormComponent } from "../support-component/forms/WithoutLabelsFormComponent";
 import { HorizontalConnectionPos } from "@angular/cdk/overlay";
 import { HorizontalFormComponent } from "../support-component/forms/HorizontalFormComponent";
+import { DatePickerComponent } from "../support-component/forms/DatePickerComponent";
+
 
 type MyFixtures = {
     onBasicForm: BasicFormComponent;
@@ -18,6 +20,7 @@ type MyFixtures = {
     onBlockForm: BlockFormComponent;
     onWithoutLabelsForm: WithoutLabelsFormComponent;
     onHorizontalForm: HorizontalFormComponent;
+    onDatePickerForm: DatePickerComponent;
 }
 
 const createFixtures = <T>(Component: new (page: Page) => T) => {
@@ -33,7 +36,8 @@ export const test = base.extend<MyFixtures>({
     onInLineForm: [createFixtures(InLineFormComponent), {scope: 'test'}],
     onBlockForm: [createFixtures(BlockFormComponent), {scope: 'test'}],
     onWithoutLabelsForm: [createFixtures(WithoutLabelsFormComponent), {scope: 'test'}],
-    onHorizontalForm: [createFixtures(HorizontalFormComponent), {scope: 'test'}]
+    onHorizontalForm: [createFixtures(HorizontalFormComponent), {scope: 'test'}],
+    onDatePickerForm: [createFixtures(DatePickerComponent), {scope: 'test'}]
 });
 
 export {expect};

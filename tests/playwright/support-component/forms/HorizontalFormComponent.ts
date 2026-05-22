@@ -34,4 +34,4 @@ export class HorizontalFormComponent extends BaseFormComponent{
         await this.HorizontalRememberMe.uncheck({force: true});
         await expect(this.HorizontalRememberMe).not.toBeChecked();
     } 
-}
+} 

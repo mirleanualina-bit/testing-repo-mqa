@@ -34,5 +34,5 @@ export class InLineFormComponent extends BaseFormComponent{
         await this.InLineRememberMe.uncheck({force: true});
         await expect(this.InLineRememberMe).not.toBeChecked();
     } 
-}
+} 
 
