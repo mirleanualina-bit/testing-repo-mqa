@@ -1,15 +1,15 @@
 
 import { Page } from "playwright";
-import { BasicFormComponent } from "../support-component/forms/BasicFormComponent";
-import { UsingGridComponent } from "../support-component/forms/UsingGridComponent";
+import { BasicFormComponent } from "../support/components/forms/BasicFormComponent";
+import { UsingGridComponent } from "../support/components/forms/UsingGridComponent";
 import {expect, test as base} from "playwright/test";
-import { ApplicationURLs } from "../support-component/main/applicationURLs";
-import { InLineFormComponent } from "../support-component/forms/InLineFormComponent";
-import { BlockFormComponent } from "../support-component/forms/BlockFormComponent";
-import { WithoutLabelsFormComponent } from "../support-component/forms/WithoutLabelsFormComponent";
+import { ApplicationURLs } from "../support/components/main/applicationURLs";
+import { InLineFormComponent } from "../support/components/forms/InLineFormComponent";
+import { BlockFormComponent } from "../support/components/forms/BlockFormComponent";
+import { WithoutLabelsFormComponent } from "../support/components/forms/WithoutLabelsFormComponent";
 import { HorizontalConnectionPos } from "@angular/cdk/overlay";
-import { HorizontalFormComponent } from "../support-component/forms/HorizontalFormComponent";
-import { DatePickerComponent } from "../support-component/forms/DatePickerComponent";
+import { HorizontalFormComponent } from "../support/components/forms/HorizontalFormComponent";
+import { DatePickerComponent } from "../support/components/forms/DatePickerComponent";
 
 
 type MyFixtures = {
