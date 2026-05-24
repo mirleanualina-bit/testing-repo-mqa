@@ -14,5 +14,5 @@ test.describe('Form Layouts', () => {
 
         await argosComponentScreenshot({page, snapshotName: 'Form Layouts - inline component form', selector: onInLineForm.card})
         });
-
+ 
 });
