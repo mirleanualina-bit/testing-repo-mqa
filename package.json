@@ -9,10 +9,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "test": "playwright test",
-    "test:visual": "playwright test --config=playwright-visual.config.ts",
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\" \"tests/**/*.ts\" \"*.ts\"",
-    "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\" \"tests/**/*.ts\" \"*.ts\""
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\" \"tests/**/*.ts\" \"*.ts\"",
+    "test:visual": "playwright test --config playwright-visual.config.ts",
+    "test:visual:ui": "playwright test --config playwright-visual.config.ts --ui"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",

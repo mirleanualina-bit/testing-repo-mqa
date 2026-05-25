@@ -10,7 +10,7 @@ test.describe('Form Layouts', () => {
 
     test('Form Layouts - inline form block',async ({ page, onApplicationURLs, onInLineForm}) => {
         await onApplicationURLs.navigateToFormLayout();
-        await onInLineForm.assertVisibility(true);
+        await onInLineForm.assertVisibility(true); 
 
         await argosComponentScreenshot({page, snapshotName: 'Form Layouts - inline component form', selector: onInLineForm.card})
         });
