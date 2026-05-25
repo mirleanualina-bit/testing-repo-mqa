@@ -3,7 +3,11 @@
     <span class="subtitle">
       Selected date: {{ date | date }}
     </span>
-    <nb-calendar [(date)]="date" [boundingMonth]="true" showWeekNumber></nb-calendar>
+    <nb-calendar
+      [(date)]="date"
+      [boundingMonth]="true"
+      [showWeekNumber]="true"
+    ></nb-calendar>
   </div>
   <div class="calendar-container">
     <span class="subtitle">
